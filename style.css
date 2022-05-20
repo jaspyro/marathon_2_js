@@ -13,23 +13,35 @@
     src: url(font_family/static/Inter-Light.ttf);
 }
 
+body {
+    margin: 0;
+}
+
 #main_content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    margin-left: 10.3125rem;
+    text-transform: uppercase;
+    background-image: url(assets/desktop/bg-image-daytime.jpg);
 }
 
 #currently {
     grid-column: 1;
     grid-row: 1;
     font-family: "inter_regular";
+    color: white;
+    margin-top: 3.5rem;
+    margin-left: 10.3125rem;
+    font-size: 1.25rem;
 }
 
 #in {
     grid-column: 1;
     grid-row: 2;
     font-family: "inter_bold";
+    color: white;
+    margin-left: 10.3125rem;
+    font-size: 1.5rem;
 }
 
 button {
@@ -43,6 +55,7 @@ button {
     text-align: left;
     font-family: "inter_bold";
     padding-left: 1.3125rem;
+    font-size: 1rem;
 }
 
 button:hover {
@@ -53,20 +66,25 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    font-family: "inter_regular";
+    text-transform: uppercase;
     margin-left: 10.3125rem;
+    background: white;
 }
 
 #current_timezone {
     grid-column: 1;
     grid-row: 1;
     margin-bottom: 0;
+    font-size: .9375rem;
+    font-family: "inter_regular";
 }
 
 #day_of_the_year {
     grid-column: 1;
     grid-row: 2;
     margin-top: 0;
+    font-size: .9375rem;
+    font-family: "inter_regular";
 }
 
 #day_of_the_week {
@@ -75,6 +93,8 @@ button:hover {
     border-left: 1px solid black;
     padding-left: 5.875rem;
     margin-bottom: 0;
+    font-size: .9375rem;
+    font-family: "inter_regular";
 }
 
 #week_number {
@@ -83,4 +103,6 @@ button:hover {
     border-left: 1px solid black;
     padding-left: 5.875rem;
     margin-top: 0;
+    font-size: .9375rem;
+    font-family: "inter_regular";
 }
