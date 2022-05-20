@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "inter_bold";
+    src: url(font_family/static/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: "inter_regular";
+    src: url(font_family/static/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: "inter_light";
+    src: url(font_family/static/Inter-Light.ttf);
+}
+
+#main_content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 10.3125rem;
+}
+
+#currently {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: "inter_regular";
+}
+
+#in {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: "inter_bold";
+}
+
+button {
+    grid-column: 2;
+    grid-row: 2;
+    width: 9.125rem;
+    height: 3.5rem;
+    border-radius: 1.5625rem;
+    color: rgb(48, 48, 48);
+    background-color: white;
+    text-align: left;
+    font-family: "inter_bold";
+    padding-left: 1.3125rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#info_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-family: "inter_regular";
+    margin-left: 10.3125rem;
+}
+
+#current_timezone {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+}
+
+#day_of_the_year {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0;
+}
+
+#day_of_the_week {
+    grid-column: 2;
+    grid-row: 1;
+    border-left: 1px solid black;
+    padding-left: 5.875rem;
+    margin-bottom: 0;
+}
+
+#week_number {
+    grid-column: 2;
+    grid-row: 2;
+    border-left: 1px solid black;
+    padding-left: 5.875rem;
+    margin-top: 0;
+}
