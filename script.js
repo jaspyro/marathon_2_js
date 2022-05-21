@@ -113,7 +113,7 @@ fetch("https://geolocation-db.com/json/").then((response) => response.json().the
     let city_spanContent = document.createTextNode(geo.city+", ");
     city_span.appendChild(city_spanContent);
     city_span.setAttribute("id", "city");
-    mainContent.insertBefore(city_span, inCity);
+    mainContent.insertBefore(city_span, inCity.nextSibling);
 
     const country_span = document.createElement("SPAN");
     let country_spanContent = document.createTextNode(geo.country_code);
