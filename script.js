@@ -77,7 +77,7 @@ let mainContent = document.getElementById("main_content");
 fetch("https://programming-quotes-api.herokuapp.com/Quotes/random").then((response) => response.json().then((quote) =>{
 ///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
     // document.getElementById('quote_citation').textContent =`"`+quote.en+`"`;
-    // document.getElementById('quote_author').textContent =`"`+quote.en+`"`;
+    // document.getElementById('quote_author').textContent = quote.author;
 /////////
 
 ///////// Création et insertion des éléments SPAN dans l'HTML
