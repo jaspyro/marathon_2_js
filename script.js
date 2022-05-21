@@ -97,3 +97,28 @@ fetch("https://programming-quotes-api.herokuapp.com/Quotes/random").then((respon
     mainContent.insertBefore(quoteAuthor_span, quoteCitation_span.nextSibling);
 /////////
 }));
+
+
+fetch("https://geolocation-db.com/json/").then((response) => response.json().then((geo) =>{
+///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
+    // document.getElementById('city').textContent = geo.city+", ";
+    // document.getElementById('country').textContent = geo.country_code;
+/////////
+
+///////// Création et insertion des éléments SPAN dans l'HTML
+    let inCity = document.getElementById("in");
+    let mainContent = document.getElementById("main_content");
+
+    const city_span = document.createElement("SPAN");
+    let city_spanContent = document.createTextNode(geo.city+", ");
+    city_span.appendChild(city_spanContent);
+    city_span.setAttribute("id", "city");
+    mainContent.insertBefore(city_span, inCity);
+
+    const country_span = document.createElement("SPAN");
+    let country_spanContent = document.createTextNode(geo.country_code);
+    country_span.appendChild(country_spanContent);
+    country_span.setAttribute("id", "country");
+    mainContent.insertBefore(country_span, city_span.nextSibling);
+/////////
+}));
