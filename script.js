@@ -12,11 +12,23 @@ fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then(
     let formatTime = hours + ':' + minutes.substr(-2);
 /* End converting UNIX to time */
 
+ //Good morning...
+ let good = '';
+ if (hours >= 5 && hours <= 11) {
+    good = 'morning';
+ } else if (hours >= 12 && hours <= 17) {
+    good = 'afternoon';
+ } 
+ else {
+    good = 'evening';
+ }
+
 ///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
     // document.getElementById('current_timezone_span').textContent = data.timezone;
     // document.getElementById('day_of_the_year_span').textContent = data.day_of_year;
     // document.getElementById('day_of_the_week_span').textContent = data.day_of_week;
     // document.getElementById('week_number_span').textContent = data.week_number;
+    // document.getElementById('good_day').textContent = `good `+good;
     // document.getElementById('currently_hour').textContent = formatTime;
     // document.getElementById('abbreviation').textContent = data.abbreviation;
 /////////
@@ -57,12 +69,18 @@ let infoContent = document.getElementById("info_content");
     infoContent.insertBefore(weekNumber_span, weekNumber.nextSibling);
 
 let mainContent = document.getElementById("main_content");
+let currently = document.getElementById('currently')
+
+    const goodDay_span = document.createElement("SPAN");
+    let goodDay_spanContent = document.createTextNode(`good `+good);
+    goodDay_span.appendChild(goodDay_spanContent);
+    goodDay_span.setAttribute("id", "good_day");
+    mainContent.insertBefore(goodDay_span, currently);
 
     const currentlyHour_span = document.createElement("SPAN");
     let currentlyHour_spanContent = document.createTextNode(formatTime);
     currentlyHour_span.appendChild(currentlyHour_spanContent);
     currentlyHour_span.setAttribute("id", "currently_hour");
-    let currently = document.getElementById('currently')
     mainContent.insertBefore(currentlyHour_span, currently.nextSibling);
 
     const abbreviation_span = document.createElement("SPAN");
@@ -81,14 +99,14 @@ fetch("https://programming-quotes-api.herokuapp.com/Quotes/random").then((respon
 /////////
 
 ///////// Création et insertion des éléments SPAN dans l'HTML
-    let currently = document.getElementById("currently");
+    let goodDay = document.getElementById("good_day");
     let mainContent = document.getElementById("main_content");
 
     const quoteCitation_span = document.createElement("SPAN");
     let quoteCitation_spanContent = document.createTextNode(`"`+quote.en+`"`);
     quoteCitation_span.appendChild(quoteCitation_spanContent);
     quoteCitation_span.setAttribute("id", "quote_citation");
-    mainContent.insertBefore(quoteCitation_span, currently);
+    mainContent.insertBefore(quoteCitation_span, goodDay);
 
     const quoteAuthor_span = document.createElement("SPAN");
     let quoteAuthor_spanContent = document.createTextNode(quote.author);
@@ -97,7 +115,6 @@ fetch("https://programming-quotes-api.herokuapp.com/Quotes/random").then((respon
     mainContent.insertBefore(quoteAuthor_span, quoteCitation_span.nextSibling);
 /////////
 }));
-
 
 fetch("https://geolocation-db.com/json/").then((response) => response.json().then((geo) =>{
 ///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
