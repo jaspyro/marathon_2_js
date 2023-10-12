@@ -1,16 +1,16 @@
 @font-face {
     font-family: "inter_bold";
-    src: url("font_family/static/Inter-Bold.ttf");
+    src: url("../fonts/Inter-Bold.ttf");
 }
 
 @font-face {
     font-family: "inter_regular";
-    src: url("font_family/static/Inter-Regular.ttf");
+    src: url("../fonts/Inter-Regular.ttf");
 }
 
 @font-face {
     font-family: "inter_light";
-    src: url("font_family/static/Inter-Light.ttf");
+    src: url("../fonts/Inter-Light.ttf");
 }
 
 :root {
@@ -31,5 +31,5 @@ body {
 
 main {
     min-height: 100vh;
-    background-image: url("../desktop/bg-image-daytime.jpg");
+    background-image: url("../images/desktop/bg-image-daytime.jpg");
 }
