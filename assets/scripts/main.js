@@ -1,6 +1,6 @@
 const main = document.querySelector("main");
 /* Worldtime */
-fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then((worldtime) => {
+fetch("https://worldtimeapi.org/api/ip").then((response) => response.json().then((worldtime) => {
     if (worldtime) {
         /* Converting UNIX to time */
         let unixTimestamp = worldtime.unixtime;
