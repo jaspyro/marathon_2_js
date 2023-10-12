@@ -98,6 +98,13 @@ main.expand #quote {
     display: flex;
 }
 
+#current {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
 #current #current_content #currently {
     display: flex;
     align-items: center;
@@ -138,6 +145,35 @@ main.expand #quote {
     letter-spacing: 4.8px;
     text-transform: uppercase;
     margin: 0;
+}
+
+#current #more {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-grow: 0;
+    color: var(--color_grey);
+    background-color: var(--color_white);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-family: var(--font_bold);
+    appearance: none;
+    border: none;
+    border-radius: 28px;
+    padding: 8px 9px 8px 20px;
+    cursor: pointer;
+}
+
+#current #more svg {
+    transition: fill 0.2s;
+    transform: rotate(180deg);
+}
+#current #more.less svg {
+    transform: unset;
+}
+
+#current #more:hover svg {
+    fill: var(--color_grey);
 }
 
 #info_content {
