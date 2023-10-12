@@ -92,28 +92,10 @@ let currently = document.getElementById('currently')
 /////////
 }));
 
+/* Citation */
 fetch("https://api.quotable.io/random").then((response) => response.json().then((quote) =>{
-///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
-    // document.getElementById('quote_citation').textContent =`"`+quote.en+`"`;
-    // document.getElementById('quote_author').textContent = quote.author;
-/////////
-
-///////// Création et insertion des éléments SPAN dans l'HTML
-    let goodDay = document.getElementById("good_day");
-    let mainContent = document.getElementById("main_content");
-
-    const quoteCitation_span = document.createElement("SPAN");
-    let quoteCitation_spanContent = document.createTextNode(`"`+quote.content+`"`);
-    quoteCitation_span.appendChild(quoteCitation_spanContent);
-    quoteCitation_span.setAttribute("id", "quote_citation");
-    mainContent.insertBefore(quoteCitation_span, goodDay);
-
-    const quoteAuthor_span = document.createElement("SPAN");
-    let quoteAuthor_spanContent = document.createTextNode(quote.author);
-    quoteAuthor_span.appendChild(quoteAuthor_spanContent);
-    quoteAuthor_span.setAttribute("id", "quote_author");
-    mainContent.insertBefore(quoteAuthor_span, quoteCitation_span.nextSibling);
-/////////
+    document.getElementById('quote_citation').textContent =`“`+quote.content+`”`;
+    document.getElementById('quote_author').textContent = quote.author;
 }));
 
 fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) =>{
