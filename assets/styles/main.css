@@ -38,7 +38,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem var(--padding_LR) 4rem;
     box-sizing: border-box;
 }
 
@@ -51,9 +50,16 @@ main.night {
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+    gap: 1rem;
+    padding: 1.5rem var(--padding_LR) 4rem;
 }
 
-#info_content {
+main.expand #main_content {
+    padding: 5vh var(--padding_LR);
+    justify-content: center;
+}
+
+main.expand #quote {
     display: none;
 }
 
@@ -132,4 +138,42 @@ main.night {
     letter-spacing: 4.8px;
     text-transform: uppercase;
     margin: 0;
+}
+
+#info_content {
+    display: none;
+    padding: 7vh var(--padding_LR);
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20.4px);
+    color: var(--color_black);
+    grid-template-columns: 1fr 1fr;
+    gap: 2.75rem;
+}
+
+main.expand #info_content {
+    display: grid;
+}
+
+main.night #info_content {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: var(--color_white);
+}
+
+#info_content .info_item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+#info_content .info_item-title {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#info_content .info_item-value {
+    font-family: var(--font_bold);
+    font-size: 56px;
+    line-height: 1;
 }
