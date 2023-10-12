@@ -93,10 +93,17 @@ let currently = document.getElementById('currently')
 }));
 
 /* Citation */
-fetch("https://api.quotable.io/random").then((response) => response.json().then((quote) =>{
-    document.getElementById('quote_citation').textContent =`“`+quote.content+`”`;
-    document.getElementById('quote_author').textContent = quote.author;
-}));
+function getQuote() {
+    fetch("https://api.quotable.io/random").then((response) => response.json().then((quote) => {
+        document.getElementById('quote_citation').textContent = `“` + quote.content + `”`;
+        document.getElementById('quote_author').textContent = quote.author;
+    }));
+}
+getQuote(); // Lancement au chargement du script
+const quoteRefresh = document.getElementById("quote_refresh");
+quoteRefresh.addEventListener("click", (e) => {
+    getQuote(); // Lancement au clic sur le bouton
+})
 
 fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) =>{
 ///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
