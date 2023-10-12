@@ -96,6 +96,22 @@ main.expand #quote {
     margin: 0;
     padding: 0.25rem;
     display: flex;
+    height: 100%;
+    outline: none;
+}
+
+#quote #quote_refresh:focus-visible {
+    border-radius: 25px;
+    border: 1px solid var(--color_white);
+}
+
+#quote #quote_refresh svg {
+    transition: opacity 0.2s;
+}
+
+#quote #quote_refresh:focus-visible svg,
+#quote #quote_refresh:hover svg {
+    opacity: 1;
 }
 
 #current {
@@ -162,12 +178,18 @@ main.expand #quote {
     border-radius: 28px;
     padding: 8px 9px 8px 20px;
     cursor: pointer;
+    outline: none;
+}
+
+#current #more:focus-visible {
+    box-shadow: 3px 2px 3px 0px;
 }
 
 #current #more svg {
     transition: fill 0.2s;
     transform: rotate(180deg);
 }
+
 #current #more.less svg {
     transform: unset;
 }
