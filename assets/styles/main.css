@@ -21,6 +21,7 @@
     --color_black: #303030;
     --color_grey: #7F7F7F;
     --padding_LR: 9vw;
+    --hour_size: 200px;
 }
 
 body {
@@ -144,7 +145,7 @@ main.expand #quote {
 #current #currently_hour {
     font-family: var(--font_bold);
     letter-spacing: -5px;
-    font-size: 200px;
+    font-size: var(--hour_size);
     line-height: 1;
     margin-bottom: -1rem;
 }
@@ -232,6 +233,159 @@ main.night #info_content {
 
 #info_content .info_item-value {
     font-family: var(--font_bold);
-    font-size: 56px;
+    font-size: 3.5rem;
     line-height: 1;
+}
+
+@media all and (max-width:1080px) {
+    :root {
+        --padding_LR: 7vw;
+        --hour_size: 180px;
+    }
+}
+
+@media all and (max-width:900px) {
+    #current {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #info_content .info_item-value {
+        font-size: 3rem;
+    }
+}
+
+@media all and (max-width:765px) {
+    :root {
+        --hour_size: 170px;
+    }
+
+    main {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/tablet/bg-image-daytime.jpg");
+    }
+
+    main.night {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/tablet/bg-image-nighttime.jpg");
+    }
+
+    #current #abbreviation {
+        font-size: 1.75rem;
+    }
+
+    #current #current_loc {
+        font-size: 1.125rem;
+    }
+
+    #info_content .info_item-value {
+        font-size: 2.5rem;
+    }
+}
+
+@media all and (max-width:685px) {
+    :root {
+        --padding_LR: 5vw;
+        --hour_size: 145px;
+    }
+}
+
+@media all and (max-width:620px) {
+    main.expand #info_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #info_content .info_item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media all and (max-width:575px) {
+    :root {
+        --padding_LR: 5vw;
+        --hour_size: 130px;
+    }
+
+    #quote #quote_content {
+        font-size: 1rem;
+    }
+
+    #its-currently {
+        display: none;
+    }
+
+    #current #currently_hour {
+        margin-bottom: -0.8rem;
+    }
+
+    #current #abbreviation {
+        font-size: 1.25rem;
+    }
+
+    #current #more {
+        padding: 4px 5px 4px 17px;
+    }
+
+    #info_content {
+        padding: 5vh var(--padding_LR);
+        gap: 2rem;
+    }
+
+    #info_content .info_item-title {
+        font-size: 0.825rem;
+        letter-spacing: 2px;
+    }
+
+    #info_content .info_item-value {
+        font-size: 2rem;
+    }
+}
+
+@media all and (max-width:475px) {
+    :root {
+        --padding_LR: 20px;
+        --hour_size: 115px;
+    }
+
+    #current #current_content #currently>p,
+    #current #current_loc {
+        font-size: 0.95rem;
+    }
+
+    #current #current_hour {
+        margin: 1rem 0 1.25rem;
+    }
+
+    #current #currently_hour {
+        margin-bottom: -0.6rem;
+    }
+}
+
+@media all and (max-width:425px) {
+    :root {
+        --hour_size: 100px;
+    }
+
+    #current #currently_hour {
+        margin-bottom: -0.4rem;
+    }
+
+    #info_content .info_item-value {
+        font-size: 1.70rem;
+    }
+}
+
+@media all and (max-width:375px) {
+    :root {
+        --hour_size: 80px;
+    }
+
+    main {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/mobile/bg-image-daytime.jpg");
+    }
+
+    main.night {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/mobile/bg-image-nighttime.jpg");
+    }
 }
