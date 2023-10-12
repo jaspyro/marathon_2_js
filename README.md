@@ -1,4 +1,5 @@
 ## The challenge
+This challenges is provided by [Frontend Mentor](https://www.frontendmentor.io).
 
 Your challenge is to build out this clock application and get it looking as close to the design as possible. You'll be using the following APIs to retrieve the necessary data:
 
