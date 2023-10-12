@@ -116,10 +116,10 @@ fetch("https://api.quotable.io/random").then((response) => response.json().then(
 /////////
 }));
 
-fetch("https://geolocation-db.com/json/").then((response) => response.json().then((geo) =>{
+fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) =>{
 ///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
     // document.getElementById('city').textContent = geo.city+", ";
-    // document.getElementById('country').textContent = geo.country_code;
+    // document.getElementById('country').textContent = geo.countryCode;
 /////////
 
 ///////// Création et insertion des éléments SPAN dans l'HTML
@@ -133,7 +133,7 @@ fetch("https://geolocation-db.com/json/").then((response) => response.json().the
     mainContent.insertBefore(city_span, inCity.nextSibling);
 
     const country_span = document.createElement("SPAN");
-    let country_spanContent = document.createTextNode(geo.country_code);
+    let country_spanContent = document.createTextNode(geo.countryCode);
     country_span.appendChild(country_spanContent);
     country_span.setAttribute("id", "country");
     mainContent.insertBefore(country_span, city_span.nextSibling);
