@@ -1,108 +1,30 @@
 @font-face {
     font-family: "inter_bold";
-    src: url(font_family/static/Inter-Bold.ttf);
+    src: url("font_family/static/Inter-Bold.ttf");
 }
 
 @font-face {
     font-family: "inter_regular";
-    src: url(font_family/static/Inter-Regular.ttf);
+    src: url("font_family/static/Inter-Regular.ttf");
 }
 
 @font-face {
     font-family: "inter_light";
-    src: url(font_family/static/Inter-Light.ttf);
+    src: url("font_family/static/Inter-Light.ttf");
+}
+
+:root {
+    --font_bold: "inter_bold", sans-serif;
+    --font_regular: "inter_regular", sans-serif;
+    --font_light: "inter_light", sans-serif;
+    --color_white: #FFFFFF;
+    --color_black: #303030;
+    --color_grey: #7F7F7F;
 }
 
 body {
     margin: 0;
-}
-
-#main_content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    text-transform: uppercase;
-    background-image: url(assets/desktop/bg-image-daytime.jpg);
-}
-
-#currently {
-    grid-column: 1;
-    grid-row: 1;
-    font-family: "inter_regular";
-    color: white;
-    margin-top: 3.5rem;
-    margin-left: 10.3125rem;
-    font-size: 1.25rem;
-}
-
-#in {
-    grid-column: 1;
-    grid-row: 2;
-    font-family: "inter_bold";
-    color: white;
-    margin-left: 10.3125rem;
-    font-size: 1.5rem;
-}
-
-button {
-    grid-column: 2;
-    grid-row: 2;
-    width: 9.125rem;
-    height: 3.5rem;
-    border-radius: 1.5625rem;
-    color: rgb(48, 48, 48);
-    background-color: white;
-    text-align: left;
-    font-family: "inter_bold";
-    padding-left: 1.3125rem;
-    font-size: 1rem;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-#info_content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    text-transform: uppercase;
-    margin-left: 10.3125rem;
-    background: white;
-}
-
-#current_timezone {
-    grid-column: 1;
-    grid-row: 1;
-    margin-bottom: 0;
-    font-size: .9375rem;
-    font-family: "inter_regular";
-}
-
-#day_of_the_year {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 0;
-    font-size: .9375rem;
-    font-family: "inter_regular";
-}
-
-#day_of_the_week {
-    grid-column: 2;
-    grid-row: 1;
-    border-left: 1px solid black;
-    padding-left: 5.875rem;
-    margin-bottom: 0;
-    font-size: .9375rem;
-    font-family: "inter_regular";
-}
-
-#week_number {
-    grid-column: 2;
-    grid-row: 2;
-    border-left: 1px solid black;
-    padding-left: 5.875rem;
-    margin-top: 0;
-    font-size: .9375rem;
-    font-family: "inter_regular";
+    font-family: var(--font_regular);
+    color: var(--color_white);
+    background-color: var(--color_grey);
 }
