@@ -1,95 +1,47 @@
-fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then((data) =>{
-/* Converting UNIX to time */
-    let unixTimestamp = data.unixtime
-    //Since JavaScript works in milliseconds, you should convert 
-    // the time into milliseconds by multiplying it by 1000.
-    let date = new Date(unixTimestamp * 1000);
-    // Hours part from the timestamp
-    let hours = date.getHours();
-    // Minutes part from the timestamp
-    let minutes = "0" + date.getMinutes();
-    // Will display time in 11:10 format
-    let formatTime = hours + ':' + minutes.substr(-2);
-/* End converting UNIX to time */
+/* Worldtime */
+fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then((worldtime) => {
+    if (worldtime) {
+        /* Converting UNIX to time */
+        let unixTimestamp = worldtime.unixtime
+        // JavaScript works in milliseconds, convert time into milliseconds by multiplying it by 1000.
+        let date = new Date(unixTimestamp * 1000);
+        // Hours part from the timestamp
+        let hours = date.getHours();
+        // Minutes part from the timestamp
+        let minutes = date.getMinutes();
+        if (minutes < 10) {
+            minutes = "0" + date.getMinutes();
+        }
+        // Will display time in 11:10 format
+        let formatTime = hours + ':' + minutes;
+        /* End converting UNIX to time */
 
- //Good morning...
- let good = '';
- if (hours >= 5 && hours <= 11) {
-    good = 'morning';
- } else if (hours >= 12 && hours <= 17) {
-    good = 'afternoon';
- } 
- else {
-    good = 'evening';
- }
+        // Greetings
+        let greetings = 'good ';
+        if (hours >= 5 && hours <= 11) {
+            greetings += 'morning';
+        } else if (hours >= 12 && hours <= 17) {
+            greetings += 'afternoon';
+        } else {
+            greetings += 'evening';
+        }
 
-///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
-    // document.getElementById('current_timezone_span').textContent = data.timezone;
-    // document.getElementById('day_of_the_year_span').textContent = data.day_of_year;
-    // document.getElementById('day_of_the_week_span').textContent = data.day_of_week;
-    // document.getElementById('week_number_span').textContent = data.week_number;
-    // document.getElementById('good_day').textContent = `good `+good;
-    // document.getElementById('currently_hour').textContent = formatTime;
-    // document.getElementById('abbreviation').textContent = data.abbreviation;
-/////////
+        const greeting = document.getElementById('greeting');
+        const currentHour = document.getElementById('currently_hour');
+        const abbreviation = document.getElementById('abbreviation');
+        const currentTimezone = document.getElementById('current_timezone_span');
+        const dayYear = document.getElementById('day_of_the_year_span');
+        const dayWeek = document.getElementById('day_of_the_week_span');
+        const weekNumber = document.getElementById('week_number_span');
 
-///////// Création et insertion des éléments SPAN dans l'HTML
-let infoContent = document.getElementById("info_content");
-    
-    let currentTimezone = document.getElementById("current_timezone");
-    const currentTimezone_span = document.createElement("SPAN");
-    let currentTimezone_spanContent = document.createTextNode(data.timezone);
-    currentTimezone_span.appendChild(currentTimezone_spanContent);
-    currentTimezone_span.setAttribute("id", "current_timezone_span");
-    currentTimezone_span.setAttribute("class", "info_content_span");
-    infoContent.insertBefore(currentTimezone_span, currentTimezone.nextSibling);
-
-    let dayOfTheYear = document.getElementById("day_of_the_year");
-    const dayOfTheYear_span = document.createElement("SPAN");
-    let dayOfTheYear_spanContent = document.createTextNode(data.day_of_year);
-    dayOfTheYear_span.appendChild(dayOfTheYear_spanContent);
-    dayOfTheYear_span.setAttribute("id", "day_of_the_year_span");
-    dayOfTheYear_span.setAttribute("class", "info_content_span");
-    infoContent.insertBefore(dayOfTheYear_span, dayOfTheYear.nextSibling);
-
-    let dayOfTheWeek = document.getElementById("day_of_the_week");
-    const dayOfTheWeek_span = document.createElement("SPAN");
-    let dayOfTheWeek_spanContent = document.createTextNode(data.day_of_week);
-    dayOfTheWeek_span.appendChild(dayOfTheWeek_spanContent);
-    dayOfTheWeek_span.setAttribute("id", "day_of_the_week_span");
-    dayOfTheWeek_span.setAttribute("class", "info_content_span");
-    infoContent.insertBefore(dayOfTheWeek_span, dayOfTheWeek.nextSibling);
-
-    let weekNumber = document.getElementById("week_number");
-    const weekNumber_span = document.createElement("SPAN");
-    let weekNumber_spanContent = document.createTextNode(data.week_number);
-    weekNumber_span.appendChild(weekNumber_spanContent);
-    weekNumber_span.setAttribute("id", "week_number_span");
-    weekNumber_span.setAttribute("class", "info_content_span");
-    infoContent.insertBefore(weekNumber_span, weekNumber.nextSibling);
-
-let mainContent = document.getElementById("main_content");
-let currently = document.getElementById('currently')
-
-    const goodDay_span = document.createElement("SPAN");
-    let goodDay_spanContent = document.createTextNode(`good `+good);
-    goodDay_span.appendChild(goodDay_spanContent);
-    goodDay_span.setAttribute("id", "good_day");
-    mainContent.insertBefore(goodDay_span, currently);
-
-    const currentlyHour_span = document.createElement("SPAN");
-    let currentlyHour_spanContent = document.createTextNode(formatTime);
-    currentlyHour_span.appendChild(currentlyHour_spanContent);
-    currentlyHour_span.setAttribute("id", "currently_hour");
-    mainContent.insertBefore(currentlyHour_span, currently.nextSibling);
-
-    const abbreviation_span = document.createElement("SPAN");
-    let abbreviation_spanContent = document.createTextNode(data.abbreviation);
-    abbreviation_span.appendChild(abbreviation_spanContent);
-    abbreviation_span.setAttribute("id", "abbreviation");
-    let currently_hour = document.getElementById('currently_hour')
-    mainContent.insertBefore(abbreviation_span, currently_hour.nextSibling);
-/////////
+        greeting.textContent = greetings;
+        currentHour.textContent = formatTime;
+        abbreviation.textContent = worldtime.abbreviation;
+        currentTimezone.textContent = worldtime.timezone;
+        dayYear.textContent = worldtime.day_of_year;
+        dayWeek.textContent = worldtime.day_of_week;
+        weekNumber.textContent = worldtime.week_number;
+    }
 }));
 
 /* Citation */
