@@ -77,26 +77,12 @@ quoteRefresh.addEventListener("click", (e) => {
     getQuote(); // Lancement au clic sur le bouton
 })
 
-fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) =>{
-///////// Insertion auto si les élements SPAN avec les ID existent dans le HTML
-    // document.getElementById('city').textContent = geo.city+", ";
-    // document.getElementById('country').textContent = geo.countryCode;
-/////////
-
-///////// Création et insertion des éléments SPAN dans l'HTML
-    let inCity = document.getElementById("in");
-    let mainContent = document.getElementById("main_content");
-
-    const city_span = document.createElement("SPAN");
-    let city_spanContent = document.createTextNode(geo.city+", ");
-    city_span.appendChild(city_spanContent);
-    city_span.setAttribute("id", "city");
-    mainContent.insertBefore(city_span, inCity.nextSibling);
-
-    const country_span = document.createElement("SPAN");
-    let country_spanContent = document.createTextNode(geo.countryCode);
-    country_span.appendChild(country_spanContent);
-    country_span.setAttribute("id", "country");
-    mainContent.insertBefore(country_span, city_span.nextSibling);
-/////////
+/* GeoApi */
+fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) => {
+    if (geo) {
+        const citySpan = document.getElementById('city');
+        const countrySpan = document.getElementById('country');
+        citySpan.textContent = geo.city;
+        countrySpan.textContent = geo.countryCode;
+    }
 }));
