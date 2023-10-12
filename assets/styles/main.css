@@ -20,6 +20,7 @@
     --color_white: #FFFFFF;
     --color_black: #303030;
     --color_grey: #7F7F7F;
+    --padding_LR: 9vw;
 }
 
 body {
@@ -31,11 +32,29 @@ body {
 
 main {
     min-height: 100vh;
-    background-image: url("../images/desktop/bg-image-daytime.jpg");
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/desktop/bg-image-daytime.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem var(--padding_LR) 4rem;
+    box-sizing: border-box;
 }
 
 main.night {
-    background-image: url("../images/desktop/bg-image-nighttime.jpg");
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../images/desktop/bg-image-nighttime.jpg");
+}
+
+#main_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#info_content {
+    display: none;
 }
 
 #quote {
