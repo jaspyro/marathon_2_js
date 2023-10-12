@@ -95,8 +95,12 @@ let currently = document.getElementById('currently')
 /* Citation */
 function getQuote() {
     fetch("https://api.quotable.io/random").then((response) => response.json().then((quote) => {
-        document.getElementById('quote_citation').textContent = `“` + quote.content + `”`;
-        document.getElementById('quote_author').textContent = quote.author;
+        if (quote.content) {
+            document.getElementById('quote_citation').textContent = `“` + quote.content + `”`;
+        }
+        if (quote.author) {
+            document.getElementById('quote_author').textContent = quote.author;
+        }
     }));
 }
 getQuote(); // Lancement au chargement du script
