@@ -34,6 +34,10 @@ main {
     background-image: url("../images/desktop/bg-image-daytime.jpg");
 }
 
+main.night {
+    background-image: url("../images/desktop/bg-image-nighttime.jpg");
+}
+
 #quote {
     display: flex;
     gap: 1rem;

@@ -2,7 +2,7 @@
 fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then((worldtime) => {
     if (worldtime) {
         /* Converting UNIX to time */
-        let unixTimestamp = worldtime.unixtime
+        let unixTimestamp = worldtime.unixtime;
         // JavaScript works in milliseconds, convert time into milliseconds by multiplying it by 1000.
         let date = new Date(unixTimestamp * 1000);
         // Hours part from the timestamp
@@ -26,6 +26,13 @@ fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then(
             greetings += 'evening';
         }
 
+        let currentWeather = "moon";
+        if (hours >= 5 && hours <= 17) {
+            currentWeather = "sun";
+        }
+
+        const main = document.querySelector("main");
+        const currentlyPicto = document.querySelector('.currently_picto');
         const greeting = document.getElementById('greeting');
         const currentHour = document.getElementById('currently_hour');
         const abbreviation = document.getElementById('abbreviation');
@@ -34,6 +41,15 @@ fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then(
         const dayWeek = document.getElementById('day_of_the_week_span');
         const weekNumber = document.getElementById('week_number_span');
 
+        if (currentWeather === "moon") {
+            main.classList.add("night");
+        } else {
+            if (main.classList.contains("night")) {
+                main.classList.remove("night");
+            }
+        }
+
+        currentlyPicto.setAttribute("src", "assets/images/desktop/icon-" + currentWeather + ".svg");
         greeting.textContent = greetings;
         currentHour.textContent = formatTime;
         abbreviation.textContent = worldtime.abbreviation;
