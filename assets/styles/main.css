@@ -45,7 +45,7 @@ main.night {
 
 #quote #quote_content {
     max-width: 540px;
-    font-size: 18px;
+    font-size: 1.125rem;
     display: flex;
     flex-direction: column;
     row-gap: 0.8rem;
@@ -59,7 +59,7 @@ main.night {
 }
 
 #quote #quote_content #quote_author {
-    font-weight: 700;
+    font-family: var(--font_bold);
 }
 
 #quote #quote_refresh {
@@ -71,4 +71,38 @@ main.night {
     margin: 0;
     padding: 0.25rem;
     display: flex;
+}
+
+#current #current_content #currently {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+#current #current_content #currently>p {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+#current #current_hour {
+    display: flex;
+    gap: 0.687rem;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+}
+
+#current #currently_hour {
+    font-family: var(--font_bold);
+    letter-spacing: -5px;
+    font-size: 200px;
+    line-height: 1;
+    margin-bottom: -1rem;
+}
+
+#current #abbreviation {
+    font-family: var(--font_light);
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }
