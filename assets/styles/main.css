@@ -28,3 +28,8 @@ body {
     color: var(--color_white);
     background-color: var(--color_grey);
 }
+
+main {
+    min-height: 100vh;
+    background-image: url("../desktop/bg-image-daytime.jpg");
+}
