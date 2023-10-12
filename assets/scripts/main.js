@@ -1,3 +1,4 @@
+const main = document.querySelector("main");
 /* Worldtime */
 fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then((worldtime) => {
     if (worldtime) {
@@ -31,7 +32,6 @@ fetch("http://worldtimeapi.org/api/ip").then((response) => response.json().then(
             currentWeather = "sun";
         }
 
-        const main = document.querySelector("main");
         const currentlyPicto = document.querySelector('.currently_picto');
         const greeting = document.getElementById('greeting');
         const currentHour = document.getElementById('currently_hour');
@@ -86,3 +86,18 @@ fetch("http://ip-api.com/json/").then((response) => response.json().then((geo) =
         countrySpan.textContent = geo.countryCode;
     }
 }));
+
+/* Button More */
+const btnMore = document.getElementById("more");
+const btnMoreText = document.getElementById("more_text");
+let expand = 0;
+btnMore.addEventListener("click", () => {
+    expand++;
+    btnMore.classList.toggle("less");
+    if (expand % 2 === 0) {
+        btnMoreText.textContent = "more";
+    } else {
+        btnMoreText.textContent = "less";
+    }
+    main.classList.toggle("expand");
+})
