@@ -90,7 +90,7 @@ main.night {
     display: flex;
     gap: 0.687rem;
     align-items: flex-end;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
 }
 
 #current #currently_hour {
@@ -105,4 +105,12 @@ main.night {
     font-family: var(--font_light);
     font-size: 2.5rem;
     text-transform: uppercase;
+}
+
+#current #current_loc {
+    font-family: var(--font_bold);
+    font-size: 1.5rem;
+    letter-spacing: 4.8px;
+    text-transform: uppercase;
+    margin: 0;
 }
