@@ -4,14 +4,15 @@ fetch("https://worldtimeapi.org/api/ip").then((response) => response.json().then
     if (worldtime) {
         /* Converting UNIX to time */
         let unixTimestamp = worldtime.unixtime;
+        let utcOffset = worldtime.utc_offset;
         // JavaScript works in milliseconds, convert time into milliseconds by multiplying it by 1000.
-        let date = new Date(unixTimestamp * 1000);
+        let date = new Date((unixTimestamp + (parseInt(utcOffset) * 3600)) * 1000);
         // Hours part from the timestamp
-        let hours = date.getHours();
+        let hours = date.getUTCHours();
         // Minutes part from the timestamp
-        let minutes = date.getMinutes();
+        let minutes = date.getUTCMinutes();
         if (minutes < 10) {
-            minutes = "0" + date.getMinutes();
+            minutes = "0" + date.getUTCMinutes();
         }
         // Will display time in 11:10 format
         let formatTime = hours + ':' + minutes;
