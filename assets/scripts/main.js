@@ -53,6 +53,7 @@ fetch("https://worldtimeapi.org/api/ip").then((response) => response.json().then
         currentlyPicto.setAttribute("src", "assets/images/desktop/icon-" + currentWeather + ".svg");
         greeting.textContent = greetings;
         currentHour.textContent = formatTime;
+        currentHour.setAttribute("datetime", date.toISOString().slice(0, 19));
         abbreviation.textContent = worldtime.abbreviation;
         currentTimezone.textContent = worldtime.timezone;
         dayYear.textContent = worldtime.day_of_year;
